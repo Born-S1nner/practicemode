@@ -1,0 +1,39 @@
+
+<% if user_signed_in? %>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>User name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Twitter</th>
+        <th ></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @nitrogens.each do |nitrogen| %>
+        <% if nitrogen.user == current_user %>
+        <tr>
+          <td><%= link_to nitrogen.user_name, nitrogen %></td>
+          <td><%= nitrogen.email %></td>
+          <td><%= nitrogen.phone %></td>
+          <td><%= nitrogen.twitter %></td>
+          
+          <td><%= link_to 'Delete', nitrogen, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
+          
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Friends', new_nitrogen_path, class:"btn btn-secondary" %>
+
+<% else %>
+  <h1>Hello People!</h1>
+  <p>This is my first rails Page</p>
+<% end %>

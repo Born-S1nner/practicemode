@@ -1,0 +1,7 @@
+<h1>Editing Friends</h1>
+
+<%= render 'form', nitrogen: @nitrogen %>
+<br/>
+<%= link_to 'Show', @nitrogen, class:"btn btn-secondary" %> 
+<%= link_to 'Delete', @nitrogen, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<%= link_to 'Back', nitrogens_path, class:"btn btn-dark" %>

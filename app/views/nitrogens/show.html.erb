@@ -1,0 +1,15 @@
+
+<div class="jumbotron">
+    <h1 class="display-4"><%= @nitrogen.user_name %></h1>
+    <p class="lead">
+      <%= @nitrogen.email %> |
+      <%= @nitrogen.phone %> |
+      <%= @nitrogen.twitter %>
+    </p>
+    <p class="lead">
+      <%= link_to 'Edit', edit_nitrogen_path(@nitrogen), class:"btn btn-secondary" %> 
+      <%= link_to 'Delete', @nitrogen, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+      <%= link_to 'Back', nitrogens_path, class:"btn btn-dark" %>
+      
+    </p>
+</div>

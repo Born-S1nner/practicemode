@@ -1,0 +1,37 @@
+<%= form_with(model: nitrogen) do |form| %>
+  <% if nitrogen.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(nitrogen.errors.count, "error") %> prohibited this nitrogen from being saved:</h2>
+
+      <ul>
+        <% nitrogen.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.text_field :user_name, class:"form-control", placeholder:"Username" %>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <%= form.text_field :email, class:"form-control", placeholder:"Email" %>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <%= form.text_field :phone, class:"form-control", placeholder:"Phone Number" %>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <%= form.text_field :twitter, class:"form-control", placeholder:"Twitter" %>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <%= form.number_field :user_id, id: :nitrogen_user_id, class:"form-control", value:current_user.id, type: :hidden %>
+  </div>
+  <hr/>
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>
